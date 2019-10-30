@@ -3,11 +3,15 @@ import time
 from fastapi import FastAPI
 from starlette.requests import Request
 
-from users.views import users_route
+from suppliers.views import supplier_route
 
 
 app = FastAPI()
-app.include_router(users_route)
+app.include_router(
+	supplier_route,
+	prefix='/supplier',
+	tags=['Suppliers']
+)
 
 
 @app.middleware("http")
