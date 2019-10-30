@@ -2,3 +2,4 @@ neo4j
 ipython
 fastapi
 uvicorn
+typing_extensions
