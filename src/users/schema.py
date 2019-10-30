@@ -1,6 +1,6 @@
 import re
 
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, validator, UrlStr
 from typing_extensions import Literal
 from typing import List, Optional
 
@@ -22,7 +22,7 @@ class Supplier(BaseModel):
 	postalCode: str
 	region: Optional[str] = ""
 	fax: Optional[str] = ""
-	homePage: Optional[str] = ""
+	homePage: Optional[UrlStr] = ""
 
 
 	@validator('supplierID')
