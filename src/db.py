@@ -17,3 +17,12 @@ def run_get_query(query):
 	result = session.read_transaction(fetch, query)
 	session.close()
 	return result
+
+def run_post_query(query, data):
+	def put(tx, query, data):
+		return tx.run(query, **data).single().value()
+
+	session = get_session()
+	result = session.write_transaction(put, query, data)
+	session.close()
+	return result
