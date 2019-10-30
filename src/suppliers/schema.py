@@ -10,9 +10,13 @@ from typing import List, Optional
 # from pydantic import HttpUrl
 
 
+# Another bug, when using typing_extensions.Literal for possible set of allowed values,
+# field with more than one options won't show up in swagger UI.
+
+
 class Supplier(BaseModel):
 	country: Literal['IN']
-	contactTitle: Literal['Mr.', 'Ms.', 'Mrs.']
+	contactTitle: Literal['Mr.', 'Ms.', 'Mrs.'] # this one won't show up in swagger UI.
 	address: str
 	supplierID: str
 	phone: str

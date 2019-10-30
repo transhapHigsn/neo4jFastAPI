@@ -2,7 +2,7 @@
 from fastapi import APIRouter
 from starlette.responses import JSONResponse
 
-from db import run_get_query, run_post_query
+from db import get_session
 from suppliers.schema import Suppliers, Supplier
 
 supplier_route = APIRouter()
@@ -16,8 +16,12 @@ supplier_route = APIRouter()
 	description="Get all information such as company, fax, homepage, etc., of all suppliers registered in system."
 	)
 def get_all_suppliers():
-	result = run_get_query("""MATCH (n:Supplier) RETURN n""")
-	suppliers = [dict(i['n']) for i in result]
+	query = """MATCH (n:Supplier) RETURN n"""
+	with get_session() as session:
+		tx = session.begin_transaction()
+		result = tx.run(query)
+		suppliers = [dict(i['n']) for i in result]
+		tx.close()
 	return JSONResponse(content={'suppliers': suppliers})
 
 
@@ -40,5 +44,8 @@ def create_new_supplier(supplier: Supplier):
 		})
 		RETURN n.supplierID
 	"""
-	run_post_query(query, dict(supplier))
+	with get_session() as session:
+		tx = session.begin_transaction()
+		tx.run(query, dict(supplier))
+		tx.commit()
 	return JSONResponse(content={'supplier': dict(supplier)})
