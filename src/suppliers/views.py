@@ -2,8 +2,8 @@
 from fastapi import APIRouter
 from starlette.responses import JSONResponse
 
-from db import get_session
-from suppliers.schema import Suppliers, Supplier
+from src.db import get_session
+from src.suppliers.schema import Suppliers, Supplier
 
 supplier_route = APIRouter()
 

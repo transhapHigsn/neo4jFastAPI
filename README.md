@@ -31,4 +31,4 @@ Fast API web server and Neo4j Graph Database back-end.
 
 3. Install dependencies using this ```pip install -r requirements.txt```
 
-3. Run command ```uvicorn main:app --reload``` to start FastAPI webserver.
+3. Run command ```uvicorn src.main:app --reload``` to start FastAPI webserver.

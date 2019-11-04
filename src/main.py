@@ -3,7 +3,7 @@ import time
 from fastapi import FastAPI
 from starlette.requests import Request
 
-from suppliers.views import supplier_route
+from src.suppliers.views import supplier_route
 
 
 app = FastAPI()
@@ -25,13 +25,13 @@ async def add_process_time_header(request: Request, call_next):
 
 @app.on_event('startup')
 async def load_configs():
-	from config import load_config_file
+	from src.config import load_config_file
 	load_config_file()
 
 
 @app.on_event('shutdown')
 async def clear_config_caches():
-	from config import load_config_file, read_config_file, get_config
+	from src.config import load_config_file, read_config_file, get_config
 	get_config.cache_clear()
 	load_config_file.cache_clear()
 	read_config_file.cache_clear()

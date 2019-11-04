@@ -1,4 +1,4 @@
-from __init__ import driver
+from src.__init__ import driver
 # DB = {}
 
 def get_session(db_type='write'):
