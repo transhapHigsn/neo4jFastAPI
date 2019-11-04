@@ -3,3 +3,4 @@ ipython
 fastapi
 uvicorn
 typing_extensions
+pytest
