@@ -1,4 +1,4 @@
-# neo4jFastAPI
+# neo4jFastAPI  ![](https://github.com/transhaphigsn/neo4jFastAPI/workflows/Python%20application/badge.svg)
 Fast API web server and Neo4j Graph Database back-end. 
 
 # To get started
