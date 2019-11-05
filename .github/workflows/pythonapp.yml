@@ -12,8 +12,8 @@ jobs:
         env:
           NEO4J_AUTH: neo4j/test 
         ports:
-          - 7474
-          - 7687 
+          - 7474:7474
+          - 7687:7687
 
     steps:
     - uses: actions/checkout@v1
@@ -35,4 +35,4 @@ jobs:
     - name: Test with pytest
       run: |
         pip install pytest
-        pytest
+        pytest -v src/tests
