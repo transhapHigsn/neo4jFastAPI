@@ -11,5 +11,13 @@ install:
 services:
   - neo4j
 
+before-script:
+  - sudo service neo4j stop
+  - sleep 20
+  - echo 'dbms.connector.bolt.listen_address = 127.0.0.1:7687' | sudo tee --append /etc/neo4j/neo4j.conf
+  - cat /etc/neo4j/neo4j.conf
+  - sudo service neo4j start
+  - sleep 30
+
 script:
   - pytest -v src/tests
