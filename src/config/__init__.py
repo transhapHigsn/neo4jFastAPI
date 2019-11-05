@@ -6,7 +6,8 @@ from functools import lru_cache
 
 
 CONF_FILES = {
-	'dev': 'dev.ini'
+	'dev': 'dev.ini',
+	'test': 'test.ini'
 }
 
 
