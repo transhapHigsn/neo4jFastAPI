@@ -6,6 +6,14 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    services:
+      neo4j:
+        image: neo4j:latest
+        env:
+          NEO4J_AUTH: neo4j/test 
+        ports:
+          - 7474
+          - 7687 
 
     steps:
     - uses: actions/checkout@v1
