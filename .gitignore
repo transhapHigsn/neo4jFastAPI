@@ -1,6 +1,6 @@
 .venv/
 .vscode/
-src/config/dev.ini
 
 __pycache__/
-check.json
+
+.pyc
