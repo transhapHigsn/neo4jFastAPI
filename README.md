@@ -10,6 +10,11 @@ Fast API web server and Neo4j Graph Database back-end.
 	password=<enter_test_password>
 	```
 
+	Or you can use following command to do it. You will have to run root(i.e. neo4j_python/) of the project. 
+	```sh create_dev.sh```
+
+	Note: This creates a dev.ini file with dummy info. You may want to change this as per your credentials.
+
 	In order to setup neo4j database (on linux), use this:
 	```
 	sudo docker run \                                                      
